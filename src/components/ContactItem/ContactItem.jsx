@@ -12,5 +12,6 @@ export const ContactItem = ({name, number, deleteItem, id }) => {
 ContactItem.propTypes = {
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
-    deleteItem: PropTypes.func.isRequired
+    deleteItem: PropTypes.func.isRequired,
+    id: PropTypes.string.isRequired
 };
