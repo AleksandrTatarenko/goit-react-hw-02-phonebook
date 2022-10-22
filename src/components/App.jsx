@@ -16,20 +16,20 @@ export class App extends Component  {
   ],
     filter:''
   };
-  // componentDidMount() {
-  //   try {
-  //     const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-  //     this.setState({ contacts: parsedContacts });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
-  // componentDidUpdate(prevProps, prevState) {
-  //   if (prevState.contacts !== this.state.contacts) {
-  //     localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-  //   }
-  //   return;
-  // };
+  componentDidMount() {
+    try {
+      const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
+      this.setState({ contacts: parsedContacts });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+    return;
+  };
   formSubmitHandler = (data) => {
     data.id = nanoid(5);
     const includeContact = this.state.contacts.map(contact => contact.name.toLowerCase().includes(data.name.toLowerCase()))
