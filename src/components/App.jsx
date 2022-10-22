@@ -17,8 +17,8 @@ export class App extends Component  {
     filter:''
   };
   componentDidMount() {
-      const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
-      this.setState({ contacts: parsedContacts });
+    const parsedContacts = JSON.parse(localStorage.getItem('contacts'));
+    this.setState({ contacts: parsedContacts });
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.contacts !== this.state.contacts) {
@@ -65,7 +65,7 @@ export class App extends Component  {
       <ContactForm onSubmit={this.formSubmitHandler} />
       <Title>Contacts</Title>
       <Filter method={this.filterUpdate} filter={this.state.filter} />
-      <Contacts contacts={this.contactsFilter()} deleteItem={this.deleteContact} />
+      <Contacts contacts={this.state.filter?this.contactsFilter():this.state.contacts} deleteItem={this.deleteContact} />
     </div>
   )};
 };
